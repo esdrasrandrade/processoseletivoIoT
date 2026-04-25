@@ -251,24 +251,38 @@ Preencha todas as seções abaixo de forma **clara, objetiva e técnica**.
 
 ## 1️⃣ Visão Geral da Solução
 
-Descreva, em poucas palavras:
+O objetivo deste projeto é implementar uma interface embarcada de seleção interativa, inspirada em sistemas de navegação de menus de videogames, utilizando um joystick analógico e um microcontrolador ESP32.
 
-- Qual é o objetivo do seu projeto  
-- O que o sistema embarcado simulado faz  
-- Como o usuário interage com ele (se aplicável)
+O sistema permite ao usuário navegar entre diferentes opções (representadas por LEDs) através do eixo horizontal do joystick. A seleção é confirmada por meio de um botão físico, acionando um feedback visual temporário (piscadas do LED selecionado).
+
+A interação ocorre da seguinte forma:
+
+Movimentação do joystick → altera a seleção
+Pressionamento do botão → confirma a opção selecionada
+Feedback visual → indica confirmação por piscadas
 
 ---
 
 ## 2️⃣ Arquitetura do Sistema Embarcado
 
-Explique a arquitetura lógica do seu projeto, abordando:
+O sistema foi projetado utilizando uma abordagem baseada em máquina de estados finitos (FSM), garantindo clareza na lógica e separação de responsabilidades.
 
-- Fluxo principal do programa (`main.py`)  
-- Estrutura de estados, loops ou temporizações  
-- Como os componentes interagem entre si  
+Estados do sistema:
+SELECIONANDO: leitura contínua do joystick e atualização da seleção
+CONFIRMANDO: execução de efeito visual (piscadas) após confirmação
+Fluxo principal (main loop):
+Leitura do valor analógico do joystick (ADC)
+Interpretação da direção (esquerda/direita)
+Atualização do índice de seleção (com comportamento circular)
+Verificação do botão com debounce lógico
+Execução do comportamento conforme o estado atual
+Controle de tempo:
 
-Se desejar, utilize tópicos ou um pequeno diagrama em texto.
+A temporização é realizada utilizando time.ticks_ms(), evitando delays bloqueantes (sleep) e garantindo execução contínua e responsiva.
 
+Interação entre componentes:
+Joystick → ADC → Processamento → Atualização de estado → LEDs
+Botão → Entrada digital → Mudança de estado → Feedback visual
 ---
 
 ## 3️⃣ Componentes Utilizados na Simulação
