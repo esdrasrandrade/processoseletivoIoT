@@ -56,11 +56,16 @@ Botão → Entrada digital → Mudança de estado → Feedback visual
 - Resistores (1kΩ)
 - Limitam a corrente nos LEDs, garantindo segurança do circuito
 
-Função das componentes:
+# Função das componentes:
+
 Joystick: Navegação entre opções.
+
 Botão: Confirmação da escolha.
+
 LEDs: Feedback visual do sistema.
+
 Resistores: Proteção elétrica.
+
 ---
 
 ## 4️⃣ Decisões Técnicas Relevantes
