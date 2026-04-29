@@ -116,7 +116,7 @@ Principais aprendizados:
 - Aplicação prática de máquina de estados em sistemas embarcados
 - Controle de tempo eficiente sem bloqueio
 - Integração entre hardware simulado e lógica de firmware
-- Importância de organização e clareza no código  
+- Importância de organização e clareza no código.
 
 ---
 
